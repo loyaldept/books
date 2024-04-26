@@ -4,7 +4,7 @@
   <source src="{% static 'css/back.mp4' %}" type="video/mp4" />
 </video>
 <!-- Custom styles for this template-->
-    <link href="{% static 'bookapp/css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'bookstore/css/login.css' %}" rel="stylesheet">
     <link href="{% static 'bookstore/css/bootstrap/bootstrap.min.js' %}" rel="stylesheet">
     <link href="{% static 'bookstore/js/login.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
@@ -13,7 +13,7 @@
 
     
 <head>
-	<title>Dashboard</title>
+	<title>BookApp</title>
 </head>
 <!--Coded with love by Mutiullah Samim-->
 <body> 
@@ -53,13 +53,13 @@
   <div class="d-flex justify-content-center h-100">
     <div class="card">
       <div class="card-header">
-        <center><h3>Register Here</h3></center>
+        <center><h3>Login In Here</h3></center>
         <div class="d-flex justify-content-end">
           <span><i class="fab fa-user"></i></span>
         </div>
       </div>
       <div class="card-body">
-        <form method="POST" action="{% url 'register' %}">
+        <form method="POST" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="input-group form-group">
             <div class="input-group-prepend">
@@ -70,25 +70,19 @@
           </div>
           <div class="input-group form-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-edit"></i></span>
-            </div>
-            <input type="email" class="form-control" placeholder="email" name="email" required="">
-          </div>
-           <div class="input-group form-group">
-            <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
             <input type="password" class="form-control" placeholder="password" name="password" required="">
           </div>
           <div class="form-group">
-            <a href="{% url 'home' %}"><input name="sign-up" value="Login" class="btn float-right login_btn"></a>
+            <input type="submit" name="sign-in" value="Sign In" class="btn float-left login_btn">
           </div>
-
           <div class="form-group">
-            <input type="submit" name="sign-up" value="Register" class="btn float-left login_btn">
+            <a href="{% url 'regform' %}"><input name="sign-up" value="Register" class="btn float-right login_btn"></a>
           </div>
         </form>
-   </div>
+      </div>
+      <div class="card-footer">
         <div class="d-flex justify-content-center">
               {% if messages %}
             <div class="messages">
@@ -100,6 +94,7 @@
             </div>
             {% endif %}
               </div>
+      </div>
     </div>
   </div>
 </div>
